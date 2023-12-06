@@ -1,0 +1,29 @@
+# Latihan 1
+
+vertices1 = range(0, 10)
+edges1 = [(1,2), (1,7), (2,3), (2,6), (3,4), (3,6), (6,5), (7,6), (7,8), (7,9), (7,10), (8,9)]
+
+G1 = nx.Graph()
+
+G1.add_nodes_from(vertices1)
+G1.add_edges_from(edges1)
+pos1 = nx.spring_layout(G1)
+
+nx.draw_networkx_nodes(G1, pos1, nodelist=[1,7,10,4,5], label=True, node_color='r', node_size=1300)
+nx.draw_networkx_nodes(G1, pos1, nodelist=[2,3,6,8,9], label=True, node_color='g', node_size=1300)
+nx.draw_networkx_edges(G1, pos1, edges1, width=3, alpha=0.5, edge_color='b')
+
+labels1 = {}
+labels1[1]=r'1 F'
+labels1[2]=r'2 NF'
+labels1[3]=r'3 NF'
+labels1[4]=r'4 F'
+labels1[5]=r'5 F'
+labels1[6]=r'6 NF'
+labels1[7]=r'7 F'
+labels1[8]=r'8 NF'
+labels1[9]=r'9 NF'
+labels1[10]=r'10 F'
+
+
+nx.draw_networkx_labels(G1, pos1, labels1, font_size=16)
